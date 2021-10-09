@@ -1,0 +1,58 @@
+.header {
+  width: 100%;
+  background: #550DED;
+  height: 68px;
+  display: flex;
+  .logo {
+    width: 40px;
+    height: 44px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 12px;
+  }
+  .search {
+    width: 155px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 12px;
+    @media screen and (min-width: 768px) {
+      width: 322px;
+      margin-right: 36px;
+    }
+  }
+  .menuItem {
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      color: #FFFFFF;
+      margin: auto 12px auto 12px;
+    }
+  }
+  .signIn {
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+      margin: auto 12px auto auto;
+    }
+  }
+  .signUp {
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+      margin: auto 12px auto 0px;
+    }
+  }
+  .icNav {
+    display: inline-block;
+    margin: auto 12px auto auto;
+    color: #FFFFFF;
+    font-size: 26px;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+}

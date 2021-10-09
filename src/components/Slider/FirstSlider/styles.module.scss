@@ -1,0 +1,124 @@
+.slide {
+  position: relative;
+  width: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(https://d3luz8cn6n4wh0.cloudfront.net/hero_background_img.jpg);
+  padding: 12px;
+  display: block;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    padding: 24px 76px 24px 76px;
+  }
+  .firstBlock {
+    width: 100%;
+    padding: 12px;
+    @media screen and (min-width: 768px){
+      width: 70%;
+      padding: 24px 100px 24px 100px;
+    }
+    .firstText {
+      font-weight: 500;
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-align: center;
+      @media screen and (min-width: 768px) {
+        font-size: 24px;
+        line-height: 29px;
+        text-align: start;
+        margin-bottom: 20px;
+      }
+    }
+    .secondText {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 26px;
+      margin-bottom: 22px;
+      text-align: center;
+      @media screen and (min-width: 768px) {
+        font-size: 48px;
+        line-height: 58px;
+        text-align: start;
+        margin-bottom: 52px;
+      }
+    }
+    .thirdText {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      margin-bottom: 22px;
+      text-align: center;
+      @media screen and (min-width: 768px) {
+        font-size: 22px;
+        line-height: 26px;
+        text-align: start;
+        margin-bottom: 52px;
+      }
+    }
+    .btn {
+      display: flex;
+      justify-content: center;
+      @media screen and (min-width: 768px) {
+        justify-content: flex-start;
+      }
+      .btnStart {
+        margin-right: 12px;
+      }
+    }
+  }
+  .secondBlock {
+    width: 100%;
+    padding: 12px;
+    @media screen and (min-width: 768px){
+      width: 30%;
+    }
+    .card {
+      max-width: 24rem;
+      img {
+        min-height: 300px;
+        object-fit: cover;
+      }
+      .bottomBlock {
+        display: flex;
+        .bottomBlockFirst {
+          width: 50%;
+          display: flex;
+          align-items: center;
+          img {
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            min-height: 36px !important;
+          }
+          div {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 30px;
+            margin-left: 8px;
+          }
+        }
+        .bottomBlockSecond {
+          width: 50%;
+          .bottomBlockSecondTop {
+            text-align: end;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 20px;
+            margin-left: 4px;
+          }
+          .bottomBlockSecondBottom {
+            text-align: end;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 20px;
+            margin-left: 4px;
+          }
+        }
+      }
+    }
+  }
+}

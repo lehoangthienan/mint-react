@@ -1,0 +1,56 @@
+.block {
+  width: 100%;
+  padding: 12px;
+  @media screen and (min-width: 768px){
+    width: 40%;
+  }
+  .card {
+    height: 390px;
+    min-width: 275px;
+    max-width: 350px;
+    img {
+      height: 300px;
+      object-fit: cover;
+    }
+    .bottomBlock {
+      display: flex;
+      .bottomBlockFirst {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        img {
+          border-radius: 50%;
+          width: 36px;
+          height: 36px;
+          min-height: 36px !important;
+        }
+        div {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 30px;
+          margin-left: 8px;
+        }
+      }
+      .bottomBlockSecond {
+        width: 50%;
+        .bottomBlockSecondTop {
+          text-align: end;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 20px;
+          margin-left: 4px;
+        }
+        .bottomBlockSecondBottom {
+          text-align: end;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 20px;
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+}
