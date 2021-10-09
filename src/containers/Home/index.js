@@ -14,13 +14,17 @@ class Home extends Component {
       <Fragment>
         <Slider />
         <NFTs />
+        <NFTs />
+        <NFTs />
+        <NFTs />
+        <NFTs />
       </Fragment>
     )
   }
 }
 
 function mapStateToProps (state) {
-  return {...state}
+  return { ...state }
 }
 
 Home.propTypes = {

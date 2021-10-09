@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-import Header from '../Header';
+import Header from '../Header'
 
 export default class Layout extends PureComponent {
   render () {

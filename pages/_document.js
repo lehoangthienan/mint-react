@@ -45,11 +45,11 @@ export default class extends Document {
 
   render () {
     return (
-      <Html lang="vi" {...this.helmetHtmlAttrComponents}>
+      <Html lang='vi' {...this.helmetHtmlAttrComponents}>
         <Head>
           { this.helmetJsx }
           { this.helmetHeadComponents }
-          <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'></link>
+          <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css' />
         </Head>
         <body {...this.helmetBodyAttrComponents}>
           <Main />

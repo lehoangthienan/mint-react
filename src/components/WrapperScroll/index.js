@@ -1,11 +1,11 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import Style from './styles.module.scss';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import Style from './styles.module.scss'
 
 export default class WrapperScroll extends PureComponent {
   state = {
     isShowIconNext: false,
-    isShowIconPrev: false,
+    isShowIconPrev: false
   };
 
   static propTypes = {
@@ -18,7 +18,7 @@ export default class WrapperScroll extends PureComponent {
     className: PropTypes.string,
     eventName: PropTypes.string,
     customEventListener: PropTypes.func,
-    hideIcon: PropTypes.bool,
+    hideIcon: PropTypes.bool
   };
 
   static defaultProps = {
@@ -29,109 +29,109 @@ export default class WrapperScroll extends PureComponent {
     className: '',
     eventName: '',
     hideIcon: false,
-    customEventListener: () => {},
+    customEventListener: () => {}
   };
 
-  componentDidMount() {
-    this.refWrapper.addEventListener('scroll', this.handleScroll);
-    const { clientWidth } = this.refWrapper;
-    let { cols } = this.props;
+  componentDidMount () {
+    this.refWrapper.addEventListener('scroll', this.handleScroll)
+    const { clientWidth } = this.refWrapper
+    let { cols } = this.props
     const {
-      mobile: { cols: mobileCols },
-    } = this.props;
-    let { scrollWidth } = this.refWrapper;
+      mobile: { cols: mobileCols }
+    } = this.props
+    let { scrollWidth } = this.refWrapper
     if (mobileCols && clientWidth < 768) {
-      cols = mobileCols;
+      cols = mobileCols
     }
-    const itemWitdth = clientWidth / cols;
-    const items = this.refWrapper.getElementsByClassName('slider-item');
+    const itemWitdth = clientWidth / cols
+    const items = this.refWrapper.getElementsByClassName('slider-item')
 
     for (let i = 0, len = items.length; i < len; i++) {
-      items[i].style.width = `${itemWitdth + 'px'}`;
+      items[i].style.width = `${itemWitdth + 'px'}`
     }
 
-    scrollWidth = this.refWrapper.scrollWidth;
+    scrollWidth = this.refWrapper.scrollWidth
 
     if (scrollWidth > clientWidth) {
-      this.setState({ isShowIconNext: true });
+      this.setState({ isShowIconNext: true })
     }
   }
 
   // eslint-disable-next-line react/no-deprecated
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (nextProps.total > nextProps.cols) {
       this.setState({
-        isShowIconNext: true,
-      });
+        isShowIconNext: true
+      })
     }
   }
 
-  componentWillUnmount() {
-    this.refWrapper.removeEventListener('scroll', this.handleScroll);
+  componentWillUnmount () {
+    this.refWrapper.removeEventListener('scroll', this.handleScroll)
   }
 
   onClick = (e, label, isScrollLeft) => {
-    const { widthScroll } = this.props;
-    const { childNodes, scrollWidth, scrollLeft } = this.refWrapper;
-    const numberScroll = widthScroll || Math.round(scrollWidth / childNodes.length) + 100;
+    const { widthScroll } = this.props
+    const { childNodes, scrollWidth, scrollLeft } = this.refWrapper
+    const numberScroll = widthScroll || Math.round(scrollWidth / childNodes.length) + 100
 
     if (isScrollLeft) {
       this.refWrapper.scrollTo({
         left: scrollLeft - numberScroll,
-        behavior: 'smooth',
-      });
+        behavior: 'smooth'
+      })
     } else {
       this.refWrapper.scrollTo({
         left: scrollLeft + numberScroll,
-        behavior: 'smooth',
-      });
+        behavior: 'smooth'
+      })
     }
   };
 
   handleScroll = (e) => {
     const {
       //          dynamic     maxWidth    showWidth
-      target: { scrollLeft, scrollWidth, clientWidth },
-    } = e;
+      target: { scrollLeft, scrollWidth, clientWidth }
+    } = e
 
-    const { isShowIconPrev, isShowIconNext } = this.state;
-    const maxWidthScroll = scrollWidth - clientWidth;
+    const { isShowIconPrev, isShowIconNext } = this.state
+    const maxWidthScroll = scrollWidth - clientWidth
 
     if (maxWidthScroll === scrollLeft) {
       if (isShowIconNext) {
-        this.setState({ isShowIconNext: false });
+        this.setState({ isShowIconNext: false })
       }
     } else {
       if (!isShowIconNext) {
-        this.setState({ isShowIconNext: true });
+        this.setState({ isShowIconNext: true })
       }
     }
 
     if (scrollLeft > 0) {
       if (!isShowIconPrev) {
-        this.setState({ isShowIconPrev: true });
+        this.setState({ isShowIconPrev: true })
       }
     } else {
       if (isShowIconPrev) {
-        this.setState({ isShowIconPrev: false });
+        this.setState({ isShowIconPrev: false })
       }
     }
-    this.props.customEventListener(e);
+    this.props.customEventListener(e)
   };
 
-  render() {
-    const { children, cols, className, hideIcon, total, eventName } = this.props;
-    let { isShowIconPrev, isShowIconNext } = this.state;
+  render () {
+    const { children, cols, className, hideIcon, total, eventName } = this.props
+    let { isShowIconPrev, isShowIconNext } = this.state
     if (total < cols) {
-      isShowIconNext = false;
-      isShowIconPrev = false;
+      isShowIconNext = false
+      isShowIconPrev = false
     }
     if (children) {
       return (
         <div className={Style.wrapperOverflow}>
           <div
             ref={(ref) => {
-              this.refWrapper = ref;
+              this.refWrapper = ref
             }}
             className={className}
           >
@@ -143,19 +143,19 @@ export default class WrapperScroll extends PureComponent {
             }`}
             onClick={(e) => this.onClick(e, eventName, true)}
             tabIndex={0}
-            role="button"
-            aria-label="Prev"
+            role='button'
+            aria-label='Prev'
           />
           <i
             className={`i-next ${Style.iconNext} ${!hideIcon && isShowIconNext && Style.active}`}
             onClick={(e) => this.onClick(e, eventName)}
             tabIndex={0}
-            role="button"
-            aria-label="Next"
+            role='button'
+            aria-label='Next'
           />
         </div>
-      );
+      )
     }
-    return <div />;
+    return <div />
   }
 }
